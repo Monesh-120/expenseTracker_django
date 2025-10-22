@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# if DEBUG=False
+
+# ALLOWED_HOSTS = ['*'] #means allow everyone
+
+
 
 # Application definition
 
@@ -48,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'expenseTracker.Middleware.RequestLogginMiddleware.RequestLogging'
 ]
 
 ROOT_URLCONF = 'expenseTracker.urls'

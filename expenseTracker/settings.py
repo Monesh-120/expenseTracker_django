@@ -23,13 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-kfun$c53i54&h#r-p#)8e5s#243j1w%^pu7xo+^i1*+d6)@^08'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
 # ALLOWED_HOSTS = []
 
-DEBUG=False
+# DEBUG=False
 
-ALLOWED_HOSTS = ['*'] #means allow everyone
+# ALLOWED_HOSTS = ['*'] #means allow everyone
 
 
 
@@ -85,12 +85,22 @@ WSGI_APPLICATION = 'expenseTracker.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+import os
+from dotenv import load_dotenv
+
+env=load_dotenv()
+
+name=os.getenv('NAME')
+user=os.getenv('USER')
+password=os.getenv('PASSWORD')
+
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'expenseTracker_db',
-       'USER': 'postgres',
-       'PASSWORD': 'Monesh@120',
+       'NAME': name,
+       'USER': user,
+       'PASSWORD': password,
        'HOST': 'localhost',
        'PORT': '5432',
    }
